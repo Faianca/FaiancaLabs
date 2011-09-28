@@ -1,0 +1,103 @@
+<?php
+
+/*
+ *  Author: Jorge Meireles
+ *  Email: jorgefaianca@gmail.com
+ *  Website: jorgemeireles.com
+ *  Copyright (c) 2011
+ */
+
+namespace Faianca\SiteBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * Faianca\JogoBundle\Entity\Blog
+ *
+ * @ORM\Table(name="blog")
+ * @ORM\Entity
+ */
+class Blog {
+    
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+     protected $id;
+    
+     /**
+     * @ORM\Column(name="title", type="string")
+     * @Assert\NotBlank()
+     * @Assert\MaxLength("255")
+     * @var string
+     */
+     protected $title;
+     
+     /**
+     * @ORM\Column(name="slug", type="string")
+     * @Assert\NotBlank()
+     * @Assert\MaxLength("255")
+     * @var string
+     */
+     protected $slug;
+     
+     /**
+     * @ORM\Column(name="date_created", type="datetime")
+     * @Assert\NotBlank()
+     * @var \DateTime
+     */
+     protected $dateCreated;
+     
+     /**
+     * @var author
+     *
+     * @ORM\ManyToOne(targetEntity="Faianca\SiteBundle\Entity\User")
+     */
+     protected $author;
+     
+     /**
+     * @var Category
+     *
+     * @ORM\ManyToOne(targetEntity="Faianca\SiteBundle\Entity\Category")
+     
+     protected $category;
+     */
+     
+     /*
+      * Initializes a new blog
+      * 
+      * Sets the author and date straight way
+      */
+     public function __constructor(User $author)
+     {
+         $this->setDateCreated('now');
+         $this->author = $author;
+     }
+     
+     /**
+     * Sets the date this entity was created
+     *
+     * @throws \InvalidArgumentException
+     * @param \DateTime|string|integer $date
+     * @return Post *Fluent interface*
+     */
+    public function setDateCreated($date)
+    {
+        if (is_string($date)) {
+            $date = new \DateTime($date);
+        } else if (is_int($date)) {
+            $date = new \DateTime(sprintf('@%d', $date));
+        } else if (!$date instanceof \DateTime) {
+            throw new \InvalidArgumentException(sprintf(
+                'Expecting string, integer or DateTime, but got `%s`',
+                is_object($date) ? get_class($date) : gettype($date)
+            ));
+        }
+
+        $this->dateCreated = $date;
+        return $this;
+    }
+    
+}

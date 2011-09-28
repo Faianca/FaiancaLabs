@@ -1,0 +1,23 @@
+homepage:
+    pattern:  /
+    defaults: { _controller: FaiancaSiteBundle:Default:index }
+
+contact:
+    pattern:  /contact/
+    defaults: { _controller: FaiancaSiteBundle:Contact:index }
+    
+    
+## Blog    
+blog_index:
+    pattern: /blog/{page}
+    defaults: { _controller: FaiancaSiteBundle:Blog:index, page: 1 }
+    requirements:
+        page:  \d+
+        
+blog_show:
+    pattern: /blog/{slug}
+    defaults: { _controller: FaiancaSiteBundle:Blog:show }
+    
+comment_add:
+    pattern: /comment/add/{id}
+    defaults: { _controller: FaiancaSiteBundle:Blog:addComment }

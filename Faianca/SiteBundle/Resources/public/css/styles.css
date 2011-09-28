@@ -1,0 +1,19 @@
+/* 
+    Document   : styles
+    Created on : 21/Set/2011, 15:12:52
+    Author     : faianca
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+/* MENU */
+#menu li { display: inline; list-style-type: none;}

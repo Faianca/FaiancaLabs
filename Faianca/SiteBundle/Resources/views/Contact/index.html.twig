@@ -1,0 +1,69 @@
+{% extends 'FaiancaSiteBundle::base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('contact/style.css') }}" media="all" />
+{% endblock %}
+{% block body %}
+
+   <div id="content" class="page-with-sidebar"> 
+    
+      <!-- Begin Left -->
+      <div id="drop">
+      	<h1>Contact Information</h1>
+      	
+      	<p>Maecenas vehicula condimentum consequat. Ut suscipit ipsum eget leotero convallis feugiat upsoyut fermentum leo auctor consequat turpis aturo nisiper.</p>
+      	<br /><br />
+      	<!-- Begin Form -->
+        <div id="contact-form"> 
+          
+          <!--begin:notice message block-->
+          <div id="note"></div>
+          <!--begin:notice message block-->
+          
+          <form id="ajax-contact-form" method="post" action="">
+                <label>Name*</label>
+                <input class="required inpt" type="text" name="name" id="name" value="" />
+                <label>E-Mail*</label>
+                <input class="required inpt" type="text" name="email" id="email" value="" />
+                <label>Message*</label>
+                <textarea class="textbox" name="message" rows="6" cols="30"></textarea>
+                <label>5+1=?*</label>
+                <input class="required inpt" type="text" name="answer" id="answer" value="" />
+            <div class="clear"></div>
+            <label id="load" style="display:none"></label>
+            <input id="submit-button" class="" type="submit" name="submit" value="Submit" />
+          </form>
+        </div>
+        <!-- End Form --> 
+        
+        
+      </div>
+      <!-- End Left -->
+      
+      <!-- Begin Sidebar -->
+      <div id="right-side">
+      
+      <div class="right-box">
+      <h4>Head Office</h4>
+      <p>Lorem Ipsum Dolor Sit<br />
+      Moon Avenue No:11/21<br />
+	  Planet City, Earth</p> <br />
+	  <p> <span class="highlight">Fax:</span> +555 797 534 01<br />
+	  <span class="highlight">Tel:</span> +555 636 646 62<br />
+	  <span class="highlight">E-mail:</span> name@domain.com</p> 
+	  </div>
+	  
+	  <div class="right-box">
+	  <h4>We are here</h4>
+	  <div class="map">
+	  <iframe width="195" height="140" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Ba%C4%9Fdat+Caddesi,+Istanbul,+T%C3%BCrkiye&amp;aq=0&amp;sll=37.0625,-95.677068&amp;sspn=48.50801,135.263672&amp;ie=UTF8&amp;hq=&amp;hnear=Ba%C4%9Fdat+Cd,+Istanbul,+Turkey&amp;ll=40.951511,29.097548&amp;spn=0.009075,0.016823&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe></div>
+	  </div>
+	  
+	  
+	  
+      
+      <!-- End Sidebar -->
+       
+    </div>
+    <!-- End Content --> 
+{% endblock %}
